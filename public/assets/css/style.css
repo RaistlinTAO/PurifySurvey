@@ -1,10 +1,3 @@
-/* Theme Name: Adminto - Admin dashboard (One page)
-   Author: Coderthemes
-   Author e-mail: coderthemes@gmail.com
-   Version: 1.0.0
-   File Description: Main CSS file of the template
-*/
-
 /*------------------------------------------------------------------
 
 [Table of contents]
@@ -73,7 +66,7 @@ button,button:focus{
 }
 
 .back-to-top:hover {
-  background-color: #07d79c;
+  background-color: #607D8B;
 }
 
 .back-to-top i {
@@ -110,7 +103,7 @@ button,button:focus{
 }
 
 .text-custom {
-  color: #07d79c;
+  color: #607D8B;
 }
 
 .text-light {
@@ -122,7 +115,7 @@ button,button:focus{
 }
 
 .bg-custom {
-  background-color: #07d79c;
+  background-color: #607D8B;
 }
 
 .bg-dark {
@@ -193,7 +186,7 @@ button,button:focus{
   padding: 8px 24px !important;
   background-color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.75) !important;
-  color: #07d79c !important;
+  color: #607D8B !important;
   border-radius: 50px;
   font-weight: 500;
   text-transform: uppercase;
@@ -218,13 +211,13 @@ button,button:focus{
 
 .btn-white-bordered:hover {
   background-color: #ffffff !important;
-  color: #07d79c !important;
+  color: #607D8B !important;
 }
 
 .btn-custom {
   padding: 12px 32px !important;
-  background-color: #07d79c !important;
-  border: 2px solid #07d79c !important;
+  background-color: #607D8B !important;
+  border: 2px solid #607D8B !important;
   color: #ffffff !important;
   border-radius: 50px;
   font-weight: 500;
@@ -233,7 +226,7 @@ button,button:focus{
 
 .btn-custom:hover {
   background-color: transparent !important;
-  color: #07d79c !important;
+  color: #607D8B !important;
 }
 
 .video-btn {
@@ -274,7 +267,7 @@ button,button:focus{
 }
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
-  background-color: #07d79c;
+  background-color: #607D8B;
   color: #ffffff !important;
 }
 
@@ -496,11 +489,11 @@ iframe {
 
 .features-box i {
   font-size: 20px;
-    color: #07d79c;
+    color: #607D8B;
     line-height: 44px;
     height: 48px;
     width: 48px;
-    border: 2px solid #07d79c;
+    border: 2px solid #607D8B;
     text-align: center;
     border-radius: 50%;
 }
@@ -558,7 +551,7 @@ iframe {
 .pricing-column .plan-title {
   font-size: 16px;
   margin: 0 0 10px 0;
-  color: #07d79c;
+  color: #607D8B;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -731,7 +724,7 @@ ul.social-icons li a i {
 @media (max-width: 767px) {
   .navbar-custom {
     padding: 10px 0px !important;
-    background-color: #07d79c;
+    background-color: #607D8B;
   }
   .navbar-expand-md>.container{
     padding-right: 15px;
