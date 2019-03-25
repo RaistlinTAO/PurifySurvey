@@ -1,12 +1,3 @@
-/* Theme Name: Adminto - Admin dashboard (One page)
-   Author: Coderthemes
-   Author e-mail: coderthemes@gmail.com
-   Version: 1.0.0
-   Created: May 2016
-   File Description:Main JS file of the template
-*/
-
-
 !function($) {
     "use strict";
 

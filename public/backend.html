@@ -1,10 +1,514 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Purify Survey">
+    <meta name="author" content="Purify Survey">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <title>Purify Survey Backend</title>
+
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style_back.css" rel="stylesheet" type="text/css" />
+
+    <script src="assets/js/modernizr.min.js"></script>
+
 </head>
-<body>
+
+
+<body class="fixed-left">
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="/backend" class="logo"><span><span>Purify</span>Survey</span><i class="mdi mdi-layers"></i></a>
+        </div>
+
+        <!-- Button mobile view to collapse sidebar menu -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+
+                <!-- Page title -->
+                <ul class="nav navbar-nav list-inline navbar-left">
+                    <li class="list-inline-item">
+                        <button class="button-menu-mobile open-left">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </li>
+                    <li class="list-inline-item">
+                        <h4 class="page-title">Dashboard</h4>
+                    </li>
+                </ul>
+
+                <nav class="navbar-custom">
+
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+
+                        <li>
+                            <!-- Notification -->
+                            <div class="notification-box">
+                                <ul class="list-inline mb-0">
+                                    <li>
+                                        <a href="javascript:void(0);" class="right-bar-toggle">
+                                            <i class="mdi mdi-bell-outline noti-icon"></i>
+                                        </a>
+                                        <div class="noti-dot">
+                                            <span class="dot"></span>
+                                            <span class="pulse"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Notification bar -->
+                        </li>
+
+                        <li class="hide-phone">
+                            <form class="app-search">
+                                <input type="text" placeholder="Search..."
+                                       class="form-control">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div><!-- end container -->
+        </div><!-- end navbar -->
+    </div>
+    <!-- Top Bar End -->
+
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+
+            <!-- User -->
+            <div class="user-box">
+                <div class="user-img">
+                    <img src="assets/images/clients/google_white.png" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail img-responsive">
+                </div>
+                <h5><a href="#">Test User</a> </h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#" >
+                            <i class="mdi mdi-settings"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a href="#" class="text-custom">
+                            <i class="mdi mdi-power"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End User -->
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="/backend" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
+                    </li>
+                    <li class="text-muted menu-title">My Survey</li>
+
+                    <li>
+                        <a href="/survey/create" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Create Survey </span> </a>
+                    </li>
+
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Current Surveys </span> <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/survey">Status</a></li>
+                            <li><a href="/survey">Fast Review</a></li>
+                            <li><a href="/survey">Issues</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-texture"></i><span class="badge badge-warning pull-right">7</span><span> Results </span> </a>
+                        <ul class="list-unstyled">
+                            <li><a href="/survey">History</a></li>
+                            <li><a href="/survey">Report</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="text-muted menu-title">Survey Market</li>
+
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Current Listing </span> <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/survey">Status</a></li>
+                            <li><a href="/survey">Fast Review</a></li>
+                            <li><a href="/survey">Issues</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- Sidebar -->
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+    <!-- Left Sidebar End -->
+
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card-box">
+
+                            <h4 class="header-title mt-0 m-b-30">Total Survey</h4>
+
+                            <div class="widget-chart-1">
+                                <div class="widget-chart-box-1">
+                                    <input data-plugin="knob" data-width="80" data-height="80" data-fgColor="#f05050 "
+                                           data-bgColor="#F9B9B9" value="58"
+                                           data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                           data-thickness=".15"/>
+                                </div>
+
+                                <div class="widget-detail-1">
+                                    <h2 class="p-t-10 mb-0">256</h2>
+                                    <p class="text-muted m-b-10">Answered today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card-box">
+
+                            <h4 class="header-title mt-0 m-b-30">Sales</h4>
+
+                            <div class="widget-chart-1">
+                                <div class="widget-chart-box-1">
+                                    <input data-plugin="knob" data-width="80" data-height="80" data-fgColor="#ffbd4a"
+                                           data-bgColor="#FFE6BA" value="80"
+                                           data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                           data-thickness=".15"/>
+                                </div>
+                                <div class="widget-detail-1">
+                                    <h2 class="p-t-10 mb-0"> 45 </h2>
+                                    <p class="text-muted m-b-10">Token Earned today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="card-box">
+
+                            <h4 class="header-title mt-0">Daily Sales</h4>
+
+                            <div class="widget-chart text-center">
+                                <div id="morris-donut-example" style="height: 245px;" class="morris-chart"></div>
+                                <ul class="list-inline chart-detail-list mb-0">
+                                    <li class="list-inline-item">
+                                        <h5 style="color: #ff8acc;"><i class="fa fa-circle m-r-5"></i>Series A</h5>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <h5 style="color: #5b69bc;"><i class="fa fa-circle m-r-5"></i>Series B</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-4">
+                        <div class="card-box">
+
+                            <h4 class="header-title mt-0">Statistics</h4>
+                            <div id="morris-bar-example" style="height: 280px;" class="morris-chart"></div>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-4">
+                        <div class="card-box">
+
+                            <h4 class="header-title mt-0">Total Revenue</h4>
+                            <div id="morris-line-example" style="height: 280px;" class="morris-chart"></div>
+                        </div>
+                    </div><!-- end col -->
+
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 m-b-30">Log</h4>
+
+                            <div class="inbox-widget nicescroll" style="height: 315px;">
+                                <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-img"><img src="assets/images/clients/google_white.png"" class="rounded-circle" alt=""></div>
+                                        <p class="inbox-item-author">System Notification</p>
+                                        <p class="inbox-item-text">System Maintenance at 2AM</p>
+                                        <p class="inbox-item-date">13:40 PM</p>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-img"><img src="assets/images/clients/google_white.png"" class="rounded-circle" alt=""></div>
+                                        <p class="inbox-item-author">System Notification</p>
+                                        <p class="inbox-item-text">You have sold Result #15023 for 2 token</p>
+                                        <p class="inbox-item-date">13:34 PM</p>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-img"><img src="assets/images/clients/google_white.png"" class="rounded-circle" alt=""></div>
+                                        <p class="inbox-item-author">System Notification</p>
+                                        <p class="inbox-item-text">Survey Student Score 1 Released</p>
+                                        <p class="inbox-item-date">13:17 PM</p>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-img"><img src="assets/images/clients/google_white.png"" class="rounded-circle" alt=""></div>
+                                        <p class="inbox-item-author">System Notification</p>
+                                        <p class="inbox-item-text">Survey Student Score 1 Created</p>
+                                        <p class="inbox-item-date">12:20 PM</p>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-img"><img src="assets/images/clients/google_white.png" class="rounded-circle" alt=""></div>
+                                        <p class="inbox-item-author">Admin</p>
+                                        <p class="inbox-item-text">Hey! Thanks for join our platform</p>
+                                        <p class="inbox-item-date">10:15 AM</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-8">
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 m-b-30">Latest Surveys</h4>
+
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Survey Name</th>
+                                        <th>Start Date</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Assign</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Student Score v1</td>
+                                        <td>01/01/2017</td>
+                                        <td>26/04/2017</td>
+                                        <td><span class="badge badge-danger">Released</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>IT Support v1</td>
+                                        <td>01/01/2017</td>
+                                        <td>26/04/2017</td>
+                                        <td><span class="badge badge-success">Released</span></td>
+                                        <td>Student Score</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Student Score v1.1</td>
+                                        <td>01/05/2017</td>
+                                        <td>10/05/2017</td>
+                                        <td><span class="badge badge-pink">Pending</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>IT Support v1.1</td>
+                                        <td>01/01/2017</td>
+                                        <td>31/05/2017</td>
+                                        <td><span class="badge badge-purple">Work in Progress</span>
+                                        </td>
+                                        <td>Student Score</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Student Score v1.3</td>
+                                        <td>01/01/2017</td>
+                                        <td>31/05/2017</td>
+                                        <td><span class="badge badge-warning">Coming soon</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Student Score v1.3</td>
+                                        <td>01/01/2017</td>
+                                        <td>31/05/2017</td>
+                                        <td><span class="badge badge-primary">Coming soon</span></td>
+                                        <td>Student Score</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                </div>
+                <!-- end row -->
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <footer class="footer text-right">
+            2019 © Purify Survey
+        </footer>
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+
+    <!-- Right Sidebar -->
+    <div class="side-bar right-bar">
+        <a href="javascript:void(0);" class="right-bar-toggle">
+            <i class="mdi mdi-close-circle-outline"></i>
+        </a>
+        <h4 class="">Notifications</h4>
+        <div class="notification-list nicescroll">
+            <ul class="list-group list-no-border user-list">
+                <li class="list-group-item">
+                    <a href="#" class="user-list-item">
+                        <div class="icon bg-info">
+                            <i class="mdi mdi-account"></i>
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">New Answers</span>
+                            <span class="desc">There are 57 people answered your survey</span>
+                            <span class="time">5 hours ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="user-list-item">
+                        <div class="icon bg-pink">
+                            <i class="mdi mdi-comment"></i>
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">New Survey Created</span>
+                            <span class="desc">Survey # 5557</span>
+                            <span class="time">1 day ago</span>
+                        </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <!-- /Right-bar -->
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- jQuery  -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+
+<!-- KNOB JS -->
+<!--[if IE]>
+<script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
+<![endif]-->
+<script src="assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+<!--Morris Chart-->
+<script src="assets/plugins/morris/morris.min.js"></script>
+<script src="assets/plugins/raphael/raphael-min.js"></script>
+
+<!-- Dashboard init -->
+<script src="assets/pages/jquery.dashboard.js"></script>
+
+<!-- App js -->
+<script src="assets/js/jquery.core.js"></script>
+<script src="assets/js/jquery.app.back.js"></script>
 
 </body>
 </html>
