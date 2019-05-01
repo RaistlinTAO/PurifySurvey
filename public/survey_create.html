@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Purify Survey" name="description">
+    <meta content="Purify Survey" name="author">
+
+    <link href="assets/images/favicon.ico" rel="shortcut icon">
+
+    <title>Purify Survey Backend</title>
+
+    <!--Morris Chart CSS -->
+    <link href="assets/plugins/morris/morris.css" rel="stylesheet">
+
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/style_back.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet"/>
+
+    <script src="assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body class="fixed-left">
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a class="logo" href="/backend"><span><span>Purify</span>Survey</span><i class="mdi mdi-layers"></i></a>
+        </div>
+
+        <!-- Button mobile view to collapse sidebar menu -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+
+                <!-- Page title -->
+                <ul class="nav navbar-nav list-inline navbar-left">
+                    <li class="list-inline-item">
+                        <button class="button-menu-mobile open-left">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </li>
+                    <li class="list-inline-item">
+                        <h4 class="page-title">Dashboard</h4>
+                    </li>
+                </ul>
+
+                <nav class="navbar-custom">
+
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+
+                        <li>
+                            <!-- Notification -->
+                            <div class="notification-box">
+                                <ul class="list-inline mb-0">
+                                    <li>
+                                        <a class="right-bar-toggle" href="javascript:void(0);">
+                                            <i class="mdi mdi-bell-outline noti-icon"></i>
+                                        </a>
+                                        <div class="noti-dot">
+                                            <span class="dot"></span>
+                                            <span class="pulse"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Notification bar -->
+                        </li>
+
+                        <li class="hide-phone">
+                            <form class="app-search">
+                                <input class="form-control" placeholder="Search..."
+                                       type="text">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div><!-- end container -->
+        </div><!-- end navbar -->
+    </div>
+    <!-- Top Bar End -->
+
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+
+            <!-- User -->
+            <div class="user-box">
+                <div class="user-img">
+                    <img alt="user-img" class="rounded-circle img-thumbnail img-responsive"
+                         src="assets/images/clients/google_white.png"
+                         title="Mat Helme">
+                </div>
+                <h5><a href="#">Test User</a></h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="mdi mdi-settings"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a class="text-custom" href="#">
+                            <i class="mdi mdi-power"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End User -->
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <ul>
+                    <li>
+                        <a class="waves-effect" href="/backend"><i class="mdi mdi-view-dashboard"></i>
+                            <span> Dashboard </span> </a>
+                    </li>
+                    <li class="text-muted menu-title">My Survey</li>
+
+                    <li>
+                        <a class="waves-effect active" href="/survey_create"><i class="mdi mdi-format-font"></i> <span> Create Survey </span>
+                        </a>
+                    </li>
+
+                    <li class="has_sub">
+                        <a class="waves-effect" href="javascript:void(0);"><i class="mdi mdi-invert-colors"></i> <span> Current Surveys </span>
+                            <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/survey">Status</a></li>
+                            <li><a href="/survey">Fast Review</a></li>
+                            <li><a href="/survey">Issues</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has_sub">
+                        <a class="waves-effect" href="javascript:void(0);"><i class="mdi mdi-texture"></i><span
+                                class="badge badge-warning pull-right">7</span><span> Results </span> </a>
+                        <ul class="list-unstyled">
+                            <li><a href="/survey">History</a></li>
+                            <li><a href="/survey">Report</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="text-muted menu-title">Survey Market</li>
+
+                    <li class="has_sub">
+                        <a class="waves-effect" href="javascript:void(0);"><i class="mdi mdi-invert-colors"></i> <span> Current Listing </span>
+                            <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/survey">Status</a></li>
+                            <li><a href="/survey">Fast Review</a></li>
+                            <li><a href="/survey">Issues</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- Sidebar -->
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+    <!-- Left Sidebar End -->
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                        <div class="card-box pb-0">
+                            <div class="dropdown pull-right">
+                                <a aria-expanded="false" class="dropdown-toggle arrow-none card-drop"
+                                   data-toggle="dropdown"
+                                   href="#">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="javascript:void(0);">Action</a>
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="javascript:void(0);">Another action</a>
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="javascript:void(0);">Something else</a>
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="javascript:void(0);">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title m-t-0 m-b-30">Create your survey</h4>
+
+                            <div class="pull-in" id="progressbarwizard">
+                                <ul class="nav nav-tabs nav-justified navtab-wizard bg-muted">
+                                    <li class="nav-item"><a class="nav-link show active" data-toggle="tab"
+                                                            href="#account-2">Answer Conditions</a></li>
+                                    <li class="nav-item"><a class="nav-link show" data-toggle="tab"
+                                                            href="#profile-tab-2">Questions</a></li>
+                                    <li class="nav-item"><a class="nav-link show" data-toggle="tab" href="#finish-2">Finish</a>
+                                    </li>
+                                </ul>
+                                <form method="post" action="/survey_submit">
+                                <div class="tab-content b-0 mb-0">
+
+                                    <div class="progress progress-striped progress-bar-primary-alt" id="bar">
+                                        <div class="bar progress-bar progress-bar-primary"
+                                             style="width: 33.3333%;"></div>
+                                    </div>
+
+                                    <div class="tab-pane p-t-10 fade active show" id="account-2">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Education Level Must
+                                                        over</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="degree">
+                                                            <option value="0">Bachelor's degree</option>
+                                                            <option value="1">Master's degree</option>
+                                                            <option value="3">General Education</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Gender</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="gender">
+                                                            <option value="2">All</option>
+                                                            <option value="1">Male Only</option>
+                                                            <option value="0">Female Only</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Age Group</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="age">
+                                                            <option value="0">All</option>
+                                                            <option value="1">18-25</option>
+                                                            <option value="2">10-18</option>
+                                                            <option value="3">25-32</option>
+                                                            <option value="4">32-45</option>
+                                                            <option value="5">45-60</option>
+                                                            <option value="6">60+</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Income Group</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="income">
+                                                            <option value="0">All</option>
+                                                            <option value="1">0 – $18,200</option>
+                                                            <option value="2">$18,201 – $37,000</option>
+                                                            <option value="3">$37,001 – $90,000</option>
+                                                            <option value="4">$90,001 – $180,000</option>
+                                                            <option value="5">$180,001 and over</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane p-t-10 fade" id="profile-tab-2">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 1: The type of the
+                                                        survey</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="q1type">
+                                                            <option value="0">Single Selection</option>
+                                                            <option value="1">Multiple Selection</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 1: The main question of
+                                                        the survey</label>
+                                                    <div class="col-10">
+                                                        <input class="form-control" name="q1name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 1: The answer of the
+                                                        survey</label>
+                                                    <div class="col-10">
+
+                                                        <input class="form-control" data-role="tagsinput" name="q1option">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 2: The type of the
+                                                        survey</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="q2type">
+                                                            <option value="0">Single Selection</option>
+                                                            <option value="1">Multiple Selection</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 2: The main question of
+                                                        the survey</label>
+                                                    <div class="col-10">
+                                                        <input class="form-control" name="q2name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 2: The answer of the
+                                                        survey</label>
+                                                    <div class="col-10">
+
+                                                        <input class="form-control" data-role="tagsinput" name="q2option">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 3: The type of the
+                                                        survey</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="q3type">
+                                                            <option value="0">Single Selection</option>
+                                                            <option value="1">Multiple Selection</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 3: The main question of
+                                                        the survey</label>
+                                                    <div class="col-10">
+                                                        <input class="form-control" name="q3name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 3: The answer of the
+                                                        survey</label>
+                                                    <div class="col-10">
+
+                                                        <input class="form-control" data-role="tagsinput" name="q3option">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 4: The type of the
+                                                        survey</label>
+                                                    <div class="col-10">
+                                                        <select class="form-control" name="q4type">
+                                                            <option value="0">Single Selection</option>
+                                                            <option value="1">Multiple Selection</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 4: The main question of
+                                                        the survey</label>
+                                                    <div class="col-10">
+                                                        <input class="form-control" name="q4name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-2 col-form-label">Question 4: The answer of the
+                                                        survey</label>
+                                                    <div class="col-10">
+
+                                                        <input class="form-control" data-role="tagsinput" name="q4option">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane p-t-10 fade" id="finish-2">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row clearfix">
+                                                    <div class="col-lg-12">
+                                                        <div class="checkbox checkbox-primary">
+                                                            <input id="checkbox-h1" type="checkbox">
+                                                            <label for="checkbox-h1">
+                                                                I agree with the Terms and Conditions.
+                                                            </label>
+
+                                                            <button class="btn btn-primary btn-block">SUBMIT</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline mb-0 wizard">
+                                        <li class="previous list-inline-item first disabled" style="display:none;"><a
+                                                href="#">First</a>
+                                        </li>
+                                        <li class="previous list-inline-item disabled"><a
+                                                class="btn btn-primary waves-effect waves-light"
+                                                href="#">Previous</a>
+                                        </li>
+                                        <li class="next last list-inline-item" style="display:none;"><a
+                                                href="#">Last</a></li>
+                                        <li class="next list-inline-item float-right"><a
+                                                class="btn btn-primary waves-effect waves-light"
+                                                href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+
+                </div>
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <footer class="footer text-right">
+            2019 © Purify Survey
+        </footer>
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+
+    <!-- Right Sidebar -->
+    <div class="side-bar right-bar">
+        <a class="right-bar-toggle" href="javascript:void(0);">
+            <i class="mdi mdi-close-circle-outline"></i>
+        </a>
+        <h4 class="">Notifications</h4>
+        <div class="notification-list nicescroll">
+            <ul class="list-group list-no-border user-list">
+                <li class="list-group-item">
+                    <a class="user-list-item" href="#">
+                        <div class="icon bg-info">
+                            <i class="mdi mdi-account"></i>
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">New Answers</span>
+                            <span class="desc">There are 57 people answered your survey</span>
+                            <span class="time">5 hours ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a class="user-list-item" href="#">
+                        <div class="icon bg-pink">
+                            <i class="mdi mdi-comment"></i>
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">New Survey Created</span>
+                            <span class="desc">Survey # 5557</span>
+                            <span class="time">1 day ago</span>
+                        </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <!-- /Right-bar -->
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- jQuery  -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+
+<!-- KNOB JS -->
+<!--[if IE]>
+<script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
+<![endif]-->
+<script src="assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+
+<!-- Form wizard -->
+<script src="assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js"></script>
+<script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+
+
+<!-- App js -->
+<script src="assets/js/jquery.core.js"></script>
+<script src="assets/js/jquery.app.back.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#progressbarwizard').bootstrapWizard({
+            onTabShow: function (tab, navigation, index) {
+                var $total = navigation.find('li').length;
+                var $current = index + 1;
+                var $percent = ($current / $total) * 100;
+                $('#progressbarwizard').find('.bar').css({width: $percent + '%'});
+            },
+            'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted'
+        });
+
+        $('#btnwizard').bootstrapWizard({
+            'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted',
+            'nextSelector': '.button-next',
+            'previousSelector': '.button-previous',
+            'firstSelector': '.button-first',
+            'lastSelector': '.button-last'
+        });
+
+        var $validator = $("#commentForm").validate({
+            rules: {
+                emailfield: {
+                    required: true,
+                    email: true,
+                    minlength: 3
+                },
+                namefield: {
+                    required: true,
+                    minlength: 3
+                },
+                urlfield: {
+                    required: true,
+                    minlength: 3,
+                    url: true
+                }
+            }
+        });
+
+        $('#rootwizard').bootstrapWizard({
+            'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted',
+            'onNext': function (tab, navigation, index) {
+                var $valid = $("#commentForm").valid();
+                if (!$valid) {
+                    $validator.focusInvalid();
+                    return false;
+                }
+            }
+        });
+    });
+
+</script>
+
+
+</body>
+</html>
